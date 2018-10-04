@@ -28,12 +28,12 @@
 //+++++++++++++++++++++++++++++++++++++++++++++| MAIN |+++++++++++++++++++++++++++++++++++++++++++++++
 task main() {
 
-	untilTouch(stalin)
+	untilTouch(stalin);
 
 
   while(true)
   {
-    if (SensorValue[sonar]<50)
+    if (SensorValue[Rasputin]<50)
     {
       motor[insideLM] = 50;
       motor[outsideLM]= 50;
@@ -44,14 +44,13 @@ task main() {
     else
     {
       motor[outsideLM] = 50;                                      //Turns in place while it searches for the opponent
-     motor[insideLM] = 50
+     motor[insideLM] = 50 ;
      motor[outsideRM] = -50;
      motor[insideRM] = -50;
      }
      wait1Msec(10);
     }
   }
-}
 
 
 

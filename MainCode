@@ -122,3 +122,21 @@ task main() {
 			}
 		}
 	}\*
+	
+	  task main ()
+{
+	untilTouch(stalin);
+motor(insideLM) = 63; // Move forward at speed 63.
+motor(outsideLM) = 63;
+motor(insideRM) = 63;
+motor(outsideRM) = 63;
+motor(frontM) = 63;
+untilSonarLessThan(20, dgtl3); // Wait for the Ultrasonic
+ //Rangefinder in digital ports
+ //3 and 4 to see an object
+ //within 20 units
+stop(); // Stop.
+}
+  
+  
+  

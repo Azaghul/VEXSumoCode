@@ -47,11 +47,17 @@ task main() {
   
 //ALL CODE BELOW UNTIL END COMMENT IS FOR NOT GETTING ZOOPED OUT OF THE RING
 
+ task main()
+{
+
+untilTouch(stalin);
+
+//ALL CODE BELOW UNTIL END COMMENT IS FOR NOT GETTING ZOOPED OUT OF THE RING
+
   while(true) {
-  	
-  int threshold = 2600;
+  
    // CENTER sensor sees dark:
-    if(SensorValue(CENTER) > threshold)
+    if(SensorValue(CENTER) > 2425)
     {
       // counter-move forwards
       motor[frontM]  = -30;
@@ -62,7 +68,7 @@ task main() {
     }
 
     // LEFT sensor sees dark:
-    if(SensorValue(LEFT) > threshold)
+    if(SensorValue(LEFT) > 2530)
     {
       // counter-steer to the right:
       motor[frontM]  = 0;
@@ -72,7 +78,7 @@ task main() {
       motor[outsideRM] = -30;
     }
     // RIGHT sensor sees dark:
-    if(SensorValue(RIGHT) > threshold)
+    if(SensorValue(RIGHT) > 1530)
     {
       // counter-steer to the left:
       motor[frontM]  = 0;
@@ -80,8 +86,9 @@ task main() {
       motor[insideRM]  = 30;
       motor[outsideLM]  = -30;
       motor[outsideRM] = 30;
+    }
           // RIGHT sensor sees dark:
-    if(SensorValue(BACK) > threshold)
+    if(SensorValue(BACK) > 3050)
     {
       // counter-move forwards:
       motor[frontM]  = 30;
@@ -89,12 +96,10 @@ task main() {
       motor[insideRM]  = 30;
       motor[outsideLM]  = 30;
       motor[outsideRM] = 30;
-      
+    }
       // END OF ZOOP-RESIST CODE
       
 
   			}
 			}
-		}
-	}
-}
+		

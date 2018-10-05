@@ -3,7 +3,7 @@
 #pragma config(Sensor, in3,    RIGHT,          sensorLineFollower)
 #pragma config(Sensor, in5,    BACK,           sensorLineFollower)
 #pragma config(Sensor, dgtl1,  stalin,         sensorTouch)
-#pragma config(Sensor, dgtl3,  Rasputin,       sensorSONAR_cm)
+#pragma config(Sensor, dgtl3,  Rasputin,       sensorSONAR_inch)
 #pragma config(Motor,  port3,           insideLM,      tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port4,           insideRM,      tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port5,           outsideLM,     tmotorVex393_MC29, openLoop, reversed)
@@ -26,117 +26,35 @@
 
 
 //+++++++++++++++++++++++++++++++++++++++++++++| MAIN |+++++++++++++++++++++++++++++++++++++++++++++++
-task main() {
 
-	untilTouch(stalin);
-
-
-  while(true)
-  {
-    if (SensorValue[Rasputin]<50)
-    {
-      motor[insideLM] = 50;
-      motor[outsideLM]= 50;
-      motor[outsideRM]= 50;
-      motor[insideRM] = 50;
-    }
-
-    else
-    {
-      motor[outsideLM] = 50;                                      //Turns in place while it searches for the opponent
-     motor[insideLM] = 50 ;
-     motor[outsideRM] = -50;
-     motor[insideRM] = -50;
-     }
-     wait1Msec(10);
-    }
-  }
-
-
-
-
- /*wait1Msec(2000);          // The program waits for 2000 milliseconds before continuing.
-  
-//ALL CODE BELOW IF FOR BUMPING PEOPLE OUT OF THE RING
-  
-  while(true) {
-  	
-  	//LOOR FOR THE OTHER ROBOT
-  
-  
-  
-  
-  
-
-  
-  
-//ALL CODE BELOW UNTIL END COMMENT IS FOR NOT GETTING ZOOPED OUT OF THE RING
-
-  while(true) {
-  	
-  int threshold = 2600;
-   // CENTER sensor sees dark:
-    if(SensorValue(CENTER) > threshold)
-    {
-      // counter-move forwards
-      motor[frontM]  = -30;
-      motor[insideLM]  = -30;
-      motor[insideRM]  = -30;
-      motor[outsideLM]  = -30;
-      motor[outsideRM] = -30;
-    }
-
-    // LEFT sensor sees dark:
-    if(SensorValue(LEFT) > threshold)
-    {
-      // counter-steer to the right:
-      motor[frontM]  = 0;
-      motor[insideLM]  = 30;
-      motor[insideRM] = -30;
-      motor[outsideLM]  = 30;
-      motor[outsideRM] = -30;
-    }
-    // RIGHT sensor sees dark:
-    if(SensorValue(RIGHT) > threshold)
-    {
-      // counter-steer to the left:
-      motor[frontM]  = 0;
-      motor[insideLM]  = -30;
-      motor[insideRM]  = 30;
-      motor[outsideLM]  = -30;
-      motor[outsideRM] = 30;
-          // RIGHT sensor sees dark:
-    if(SensorValue(BACK) > threshold)
-    {
-      // counter-move forwards:
-      motor[frontM]  = 30;
-      motor[insideLM]  = 30;
-      motor[insideRM]  = 30;
-      motor[outsideLM]  = 30;
-      motor[outsideRM] = 30;
-      
-      // END OF ZOOP-RESIST CODE
-      
-
-  			}
-			}
-		}
-	}\*
-	
-	  task main ()
+  task main ()
 {
 	untilTouch(stalin);
-motor(insideLM) = 63; // Move forward at speed 63.
-motor(outsideLM) = 63;
-motor(insideRM) = 63;
-motor(outsideRM) = 63;
-motor(frontM) = 63;
-untilSonarLessThan(20, dgtl3); // Wait for the Ultrasonic
- //Rangefinder in digital ports
- //3 and 4 to see an object
- //within 20 units
-stop(); // Stop.
-}
-  
-  
+
+	while(true) {
+	  if (SensorValue[Rasputin] < 36) //When sensor is less than 36.
+	  {
+	motor(insideLM) = 127; // Move forward at speed 127.
+	motor(outsideLM) = 127;
+	motor(insideRM) = 127;
+	motor(outsideRM) = 127;
+	motor(frontM) = 127;
+			}
+				
+    	 else  //If nothing is visible by sensor.
+     {
+ 
+   motor[outsideLM] = 50;                        //Turns in place while it searches for the opponent
+   motor[insideLM] = 50 ;
+   motor[outsideRM] = -50;
+   motor[insideRM] = -50;
+    			 }
+					}
+					
+					
+					
+					
+					
+				}
+			
   
